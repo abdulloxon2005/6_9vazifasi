@@ -7,10 +7,20 @@
 </head>
 <body>
     <h1>salom</h1>
-    <form action="{ % url 'create_profile' % }">
+    <form action="{%url 'create_profile'%}" method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
         <input type="text" name="nomi">
-        <input type="file" name="images">
+        <input type="file" name="image">
         <button type="submit">Submit</button>
+
+        <a href="{%url 'profiles'%}"> Hamma profillarni korish</a>
+    </form>
+
+    <h1>Ixtiyoriy fayl yuklsh</h1>
+    <form action="{%url 'upload-files'%}" method="post">
+        {%csrf_token%}
+        <input type="file" name="file">
+        <button type="submit">Yuklash</button>
     </form>
 </body>
 </html>
